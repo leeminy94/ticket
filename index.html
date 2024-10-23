@@ -1,0 +1,477 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="author" content="티켓통">
+<meta name="copyright" content="(주)토마토티브이">
+<meta name="title" content="티켓통 - 신기술 티켓 예매 플랫폼">
+<meta name="keywords" content="티켓통, 티켓, 예매, 블록체인, 보안, 암표방지, 비대면">
+<meta name="description" content="신기술 티켓 예매 플랫폼, 티켓통!">
+<meta name="Robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:image" content="./images/logo.png">
+<meta property="og:site_name" content="티켓통">
+<meta property="og:url" content="http://">
+<meta property="og:title" content="맛통 - 신기술 티켓 예매 플랫폼">
+<meta property="og:description" content="신기술 티켓 예매 플랫폼, 티켓통!">
+<title>::: 티켓통 ::: 신기술 티켓 예매 플랫폼</title>
+
+<!-- Fav Icon -->
+<link rel="icon" type="image/jpg" href="./images/ct_favicon.png" sizes="48x48">
+<link rel="shortcut icon" href="./images/ta_favicon.png">
+
+<!-- Main Style -->
+<link rel="stylesheet" type="text/css" href="./css/style_noto.css" />
+<link rel="stylesheet" type="text/css" href="./css/tt_ticket_mw.css">
+<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" />
+
+<!--[if lt IE 9]>
+<script type="text/javascript" src="./js/html5shiv.js"></script>
+<script type="text/javascript" src="./js/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="./js/html5shiv.js"></script>
+<script type="text/javascript" src="./js/respond.min.js"></script>
+
+<!-- Basic JavaScript -->
+<script type="text/javascript" src="./js/script.js"></script>
+<script type="text/javascript" src="./js/jquery-1.9.1.min.js"></script>
+
+<!-- Tab JavaScript -->
+<script type="text/javascript">
+$(document).ready(function () {
+    //Default Action - TAB01
+    $(".tab_content").hide(); //Hide all content
+    $("ul.tabs li:first").addClass("active").show(); //Activate first tab
+    $(".tab_content:first").show(); //Show first tab content
+    //On Click Event
+    $("ul.tabs li").click(function () {
+        $("ul.tabs li").removeClass("active"); //Remove any "active" class
+        $(this).addClass("active"); //Add "active" class to selected tab
+        $(".tab_content").hide(); //Hide all tab content
+        var activeTab = $(this).find("a").attr("href"); //Find the rel attribute value to identify the active tab + content
+        $(activeTab).fadeIn(); //Fade in the active content
+        return false;
+    });
+});
+</script>
+
+<!-- Bootstrap Core JavaScript -->
+<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+
+<!-- Scrolling Nav JavaScript -->
+<script type="text/javascript" src="./js/scrolling-nav.js"></script>
+<script type="text/javascript" src="./js/jquery.easing.1.3.min.js"></script>
+
+<!-- FlexSlider -->
+<script defer src="./js/jquery.flexslider.js"></script>
+
+<!-- 웹폰트 : 비동기 로더 -->
+<script type="text/javascript">
+WebFontConfig = {
+	custom: {
+		families: ['Nanum Gothic'],
+		/*urls: ['./css/notosanskr.css'] 본고딕*/
+		urls: ['http://fonts.googleapis.com/earlyaccess/nanumgothic.css']
+	}
+};
+(function() {
+	var wf = document.createElement('script');
+	wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+		'://ajax.googleapis.com/ajax/libs/webfont/1.4.10/webfont.js';
+	wf.type = 'text/javascript';
+	wf.async = 'true';
+	var s = document.getElementsByTagName('script')[0];
+	s.parentNode.insertBefore(wf, s);
+})(); 
+</script>
+</head>
+
+<!--### 전체 레이아웃 시작 : WRAP ###-->
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<!--# 구매신청완료 POPUP #-->
+<div class="modal fade" id="myModal1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				안내 팝업
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			</div>
+			<div class="modal-body">
+				<p class="stb_copy">
+					<b>현재 서비스 준비중입니다.</b>
+				</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="w100p btn btn-primary" data-dismiss="modal">확인</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="wrap">
+	<!--## 네비 : NAV ##-->
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container">
+			<!-- PC 네비 -->
+			<div class="navbar-header page-scroll only_pc"></div>
+			<!-- PC 네비 -->
+
+			<!-- 모바일 네비 -->
+			<div class="navbar-header page-scroll only_mobile">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand page-scroll logo" href="index.html">
+					<img src="./images/logo.png" alt="tongtongticket" class="tlo only_mobile">
+				</a>
+			</div>
+			<!-- 모바일 네비 -->
+
+			<div class="collapse navbar-collapse navbar-ex1-collapse">
+				<a class="navbar-brand page-scroll logo" href="index.html">
+					<img src="./images/logo_w.png" alt="tongtongticket" class="tlo only_pc">
+				</a>
+				<ul class="nav navbar-nav">
+					<li class="hidden"><a class="page-scroll" href="#page-top"></a></li>
+					<li><a class="page-scroll" href="#page-top">홈</a></li>
+					<li><a class="page-scroll" href="#app">APP</a></li>
+					<li><a class="page-scroll" href="#service">서비스</a></li>
+					<li><a class="page-scroll" href="#guide">이용가이드</a></li>
+					<li><a class="page-scroll" href="#partner">파트너센터</a></li>
+					<li><a href="http://tomatoclassic.com" target="_blank">토마토클래식</a></li>
+				</ul>
+			</div>
+			<div class="nav_bg"></div>
+		</div>
+	</nav>
+	<!--## 네비 : NAV ##-->
+
+	<!--## 콘텐츠 시작 : CONTAINER ##-->
+	<!-- 01 HEAD -->
+	<div class="tt_bg">
+		<div class="hcontainer">
+			<div class="mscreen">
+				Performer to Audience
+				<a class="page-scroll ms_btn" href="#app">Exploer</a>
+			</div>
+		</div>
+	</div>
+	<div class="clear"></div>
+
+	<!-- 02 APP -->
+	<div id="app" class="ta_bg">
+		<div class="scontainer">
+			<div class="app_wrap">
+				<ul>
+					<li><img src="./images/m2_img01.png" alt="티켓통 이미지" class="aw_img"></li>
+					<li><img src="./images/m2_img02.png" alt="티켓통 이미지" class="aw_img"></li>
+					<li><img src="./images/m2_img03.png" alt="티켓통 이미지" class="aw_img"></li>
+				</ul>
+				<div class="clear"></div>
+				<b>Performer to Audience</b>
+				<p>
+					<a data-toggle="modal" data-target="#myModal1"><img src="./images/ad_down.png" alt="구글플레이"></a>
+					<a data-toggle="modal" data-target="#myModal1"><img src="./images/ios_down.png" alt="애플앱스토어"></a>
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- 02-1 SERVICE -->
+	<div id="service" class="bg_dgray">
+		<div class="scontainer">
+			<div class="ser_wrap">
+				<b class="sw_tit">신기술 티켓 예매 플랫폼, 티켓통</b>
+				<p class="sw_txt">
+					블록체인을 활용한 뛰어난 보안과 암표방지<br class="only_pc">
+					그리고 언택트 라이프에 맞춘 편의성까지
+				</p>
+				<div class="clear"></div>
+				<ul>
+					<li>
+						<div class="sw_img"><img src="./images/icon/m3_icon01.png" alt="보안"></div>
+						<b class="sw_ti">보안</b>
+						<p class="sw_tx">
+							블록체인 기술을 활용해 불법 매크로를 방지하고 있습니다. 또한 예매 과정에서 발생하는 주요 정보들을 블록체인으로 저장하여 뛰어난 보안을 자랑합니다.
+						</p>
+					</li>
+					<li>
+						<div class="sw_img"><img src="./images/icon/m3_icon02.png" alt="암표방지"></div>
+						<b class="sw_ti">암표방지</b>
+						<p class="sw_tx">
+							티켓의 실사용자 인증 시스템을 사용해 불법 양도를 예방하고 있습니다. 티켓 예매 후 24시간 이내 본인인증을 하지 않은 티켓은 자동 취소되어 2차 거래를 사전 차단합니다.
+						</p>
+					</li>
+					<li>
+						<div class="sw_img"><img src="./images/icon/m3_icon03.png" alt="비대면 접촉"></div>
+						<b class="sw_ti">비대면 접촉</b>
+						<p class="sw_tx">
+							실물 티켓을 수령하기 위한 번거로운 과정을 모바일 티켓을 통해 단축시킬 수 있습니다. QR코드, 얼굴인식 등 간편한 방식으로 현장 입장이 가능합니다.
+						</p>
+					</li>
+				</ul>
+				<div class="clear"></div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+
+	<!-- 02-2 SERVICE : PC -->
+	<div class="bg_lgray only_pc">
+		<div class="scontainer pb0px">
+			<div class="m_wrap">
+				<div class="swiper-container1 swiper-container-horizontal">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide swiper-slide-active">
+							<ul>
+								<li>
+									<span><img src="./images/m3_img01_1.png"  alt="모바일 티켓"></span>
+									<p>
+										<b>모바일 티켓</b>
+										예매와 동시에 받는 내 손안에 티켓<br>선물도, 사용도 쉽고 빠르게
+									</p>
+								</li>
+								<li>
+									<span><img src="./images/m3_img01_2.png"  alt="티켓인증"></span>
+									<p>
+										<b>티켓인증</b>
+										암표에 고통받지 말자<br>
+										예매 후 24시간, 실관람자 인증 시스템
+									</p>
+								</li>
+							</ul>
+						</div>
+						<div class="swiper-slide">
+							<ul>
+								<li>
+									<span><img src="./images/m3_img02_1.png"  alt="큐레이팅"></span>
+									<p>
+										<b>큐레이팅</b>
+										뻔한 장르구분은 이제 안녕<br>
+										취향을 뛰어넘는 특별한 공연 추천
+									</p>
+								</li>
+								<li>
+									<span><img src="./images/m3_img02_2.png"  alt="콘텐츠"></span>
+									<p>
+										<b>콘텐츠</b>
+										연주 음악이 궁금해?<br>
+										4K영상부터 Hi-Res음원까지 한번에
+									</p>
+								</li>
+							</ul>
+						</div>
+						<div class="swiper-slide">
+							<ul>
+								<li>
+									<span><img src="./images/m3_img03_1.png"  alt="티켓북"></span>
+									<p>
+										<b>티켓북</b>
+										이 공연 언제 봤더라?<br>
+										쉽고 깔끔하게 정리하는 나의 공연 연대기
+									</p>
+								</li>
+								<li>
+									<span><img src="./images/m3_img03_2.png"  alt="커뮤니티"></span>
+									<p>
+										<b>커뮤니티</b>
+										전문가 뺨치는 리뷰부터<br>
+										공연계 최신 소식까지 와글와글
+									</p>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="swiper-button-prev black-btn swiper-button-disabled" onclick=""></div>
+					<div class="swiper-button-next black-btn swiper-button-disabled"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 02-2 SERVICE : MOBILE -->
+	<div class="bg_lgray only_mobile">
+		<div class="scontainer pb0px">
+			<div class="m_wrap">
+				<div class="swiper-container1 swiper-container-horizontal">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide swiper-slide-active">
+							<ul>
+								<li>
+									<span><img src="./images/m3_img01_1.png"  alt="모바일 티켓"></span>
+									<p>
+										<b>모바일 티켓</b>
+										예매와 동시에 받는 내 손안에 티켓<br>선물도, 사용도 쉽고 빠르게
+									</p>
+								</li>
+							</ul>
+						</div>
+						<div class="swiper-slide">
+							<ul>
+								<li>
+									<span><img src="./images/m3_img01_2.png"  alt="티켓인증"></span>
+									<p>
+										<b>티켓인증</b>
+										암표에 고통받지 말자<br>
+										예매 후 24시간, 실관람자 인증 시스템
+									</p>
+								</li>
+							</ul>
+						</div>
+						<div class="swiper-slide">
+							<ul>
+								<li>
+									<span><img src="./images/m3_img02_1.png"  alt="큐레이팅"></span>
+									<p>
+										<b>큐레이팅</b>
+										뻔한 장르구분은 이제 안녕<br>
+										취향을 뛰어넘는 특별한 공연 추천
+									</p>
+								</li>
+							</ul>
+						</div>
+						<div class="swiper-slide">
+							<ul>
+								<li>
+									<span><img src="./images/m3_img02_2.png"  alt="콘텐츠"></span>
+									<p>
+										<b>콘텐츠</b>
+										연주 음악이 궁금해?<br>
+										4K영상부터 Hi-Res음원까지 한번에
+									</p>
+								</li>
+							</ul>
+						</div>
+						<div class="swiper-slide">
+							<ul>
+								<li>
+									<span><img src="./images/m3_img03_1.png"  alt="티켓북"></span>
+									<p>
+										<b>티켓북</b>
+										이 공연 언제 봤더라?<br>
+										쉽고 깔끔하게 정리하는 나의 공연 연대기
+									</p>
+								</li>
+							</ul>
+						</div>
+						<div class="swiper-slide">
+							<ul>
+								<li>
+									<span><img src="./images/m3_img03_2.png"  alt="커뮤니티"></span>
+									<p>
+										<b>커뮤니티</b>
+										전문가 뺨치는 리뷰부터<br>
+										공연계 최신 소식까지 와글와글
+									</p>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="swiper-button-prev black-btn swiper-button-disabled" onclick=""></div>
+					<div class="swiper-button-next black-btn swiper-button-disabled"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 04 GUIDE -->
+	<div id="guide">
+		<div class="scontainer">
+			<div class="info_wrap">
+				<div class="iw_text">
+					<b>티켓통 고객센터</b>
+					<span>for Audience</span><br>
+					<b class="mr30px"><img src="./images/icon/m4_icon01.png" alt="고객센터 번호"> 02-2128-3887</b>
+					<b><img src="./images/icon/m4_icon02.png" alt="이메일"> ticket@etomato.com</b>
+				</div>
+				<div class="iw_btn">
+					<a data-toggle="modal" data-target="#myModal1" class="lbtn">이용가이드</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="clear"></div>
+
+	<!-- 05 PARTNER -->
+	<div id="partner" class="bg_lgray">
+		<div class="scontainer">
+			<div class="info_wrap">
+				<div class="iw_text">
+					<b>티켓통 파트너센터</b>
+					<span>for Company</span><br>
+					<p>
+						더욱 편리한 관리자 환경과 티켓 판매를 위한 명확한 인사이트<br class="only_pc">
+						기획사, 제작사에게 꼭 필요한 기능만 제공하는 티켓통의 파트너가 되어보세요.
+					</p>
+				</div>
+				<div class="iw_btn">
+					<ul class="sbtn">
+						<li><a data-toggle="modal" data-target="#myModal1">파트너 신청하기</a></li>
+						<li><a data-toggle="modal" data-target="#myModal1">파트너센터 바로가기</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="clear"></div>
+	<!--# 콘텐츠 끝 : CONTAINER #-->
+
+	<!--# 풋터 시작 : FOOTER #-->
+	<div class="footer">
+		<div class="copyright">
+			<div class="f_logo"><img src="./images/logo.png" alt="티켓통"></div>
+			㈜토마토티브이<br>
+			대표이사 : 박혜정, 지성태 | 사업자 등록번호: 319-88-01051 | 주소 : 서울특별시 마포구 양화진 4길 32 이토마토빌딩<br>
+			고객센터 : 02-2128-3887 | 이메일 : ticket@etomato.com | 통신판매업신고 : 2014-서울마포-0147<br><br>
+			<a href="agree.htm">이용약관</a> |
+			<a href="agree.htm">전자금융거래약관</a> |
+			<a href="agree.htm">개인정보취급방침</a> |
+			<a href="agree.htm">청소년보호정책</a><br>
+			Copyright © ㈜토마토티브이. All Rights Reserved.
+			<div class="fw_top"><a href="#page-top" class="page-scroll"><img src="./images/icon/top_btn.png" alt="위로"></a></div>
+		</div>
+	</div>
+	<!--# 풋터 끝 : FOOTER #-->
+</div>
+</body>
+
+<!-- Main Slider -->
+<script type="text/javascript">
+$(function(){
+	SyntaxHighlighter.all();
+});
+$(window).load(function(){
+	$('.flexslider').flexslider({
+		animation: "fade",
+		start: function(slider){
+			$('body').removeClass('loading');
+		}
+	});
+});
+</script>
+
+<!-- Swiper JS -->
+<script type="text/javascript" src="./js/swiper.js"></script>
+<script type="text/javascript">
+var swiper1 = new Swiper('.swiper-container1', {
+	pagination: '.swiper-pagination',
+	paginationClickable: true,
+	nextButton: '.swiper-button-next',
+	prevButton: '.swiper-button-prev'
+	/*loop:'auto'*/
+});
+var swiper2 = new Swiper('.swiper-container2', {
+	pagination: '.swiper-pagination',
+	paginationClickable: true,
+	nextButton: '.swiper-button-next',
+	prevButton: '.swiper-button-prev'
+	/*loop:'auto'*/
+});
+</script>
+<!--### 전체 레이아웃 끝 : WRAP ###-->
+</html>
